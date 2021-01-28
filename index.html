@@ -1,25 +1,984 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | HeroBehavior</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/GameDemo-WebGl.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">HeroBehavior</div>
-      </div>
-    </div>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+        <p>This is a summary for the performance of important member functions for containers in the C++ Standard Template Library. Note that many functions are left out for simplicity.
+        The following containers are described below:
+        </p>
+
+        <UL>
+            <LI><A HREF="#vector">vectors</A></LI>
+            
+            <LI><A HREF="#list">lists</A></LI>
+            
+            <LI><A HREF="#deque">deques</A></LI>
+            
+            <LI><A HREF="#stack">stacks</A></LI>
+            
+            <LI><A HREF="#queue">queues</A></LI>
+            
+            <LI><A HREF="#priority">priority queues</A></LI>
+            
+            <LI><A HREF="#set">sets and multisets</A></LI>
+            
+            <LI><A HREF="#map">maps and multimaps</A></LI>
+        </UL>
+
+        <HR>
+
+        <H2><a NAME="vector"></a>Vector</H2>
+
+        <H3>Header</H3>
+
+        <p><tt>#include &lt;vector&gt;</tt></p>
+        
+        <H3>Constructors</H3>
+        <TABLE border="1">
+            <TR>
+               <TD>
+                  <TT>vector&lt;T&gt; v;</TT>
+               </TD><TD>
+                  Make an empty vector.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>vector&lt;T&gt; v(n);</TT>
+               </TD><TD>
+                  Make a vector with N elements.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>vector&lt;T&gt; v(n, value);</TT>
+               </TD><TD>
+                  Make a vector with N elements, initialized to value.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>vector&lt;T&gt; v(begin, end);</TT>
+               </TD><TD>
+                  Make a vector and copy the elements from <tt>begin</tt> to <tt>end</tt>.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+         </TABLE>
+         
+         <H3>Accessors</H3>
+
+        <TABLE border="1">
+            <TR>
+               <TD>
+                  <TT>v[i];</TT>
+               </TD><TD>
+                  Return (or set) the I'th element.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.at(i);</TT>
+               </TD><TD>
+                  Return (or set) the I'th element, with bounds checking.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.size();</TT>
+               </TD><TD>
+                  Return current number of elements.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.empty();</TT>
+               </TD><TD>
+                  Return true if vector is empty.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.begin();</TT>
+               </TD><TD>
+                  Return random access iterator to start.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.end();</TT>
+               </TD><TD>
+                  Return random access iterator to end.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.front();</TT>
+               </TD><TD>
+                  Return the first element.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.back();</TT>
+               </TD><TD>
+                  Return the last element.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.capacity();</TT>
+               </TD><TD>
+                  Return maximum number of elements.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+         </TABLE>
+         
+         <H3>Modifiers</H3>
+         
+         <TABLE border="1">
+            <TR>
+               <TD>
+                  <TT>v.push_back(value);</TT>
+               </TD><TD>
+                  Add value to end.
+               </TD><TD>
+                  O(1) (amortized)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.insert(iterator, value);</TT>
+               </TD><TD>
+                  Insert value at the position indexed by iterator.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.pop_back();</TT>
+               </TD><TD>
+                  Remove value from end.
+               </TD><TD>
+                  O(1)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.erase(iterator);</TT>
+               </TD><TD>
+                  Erase value indexed by iterator.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+            <TR>
+               <TD>
+                  <TT>v.erase(begin, end);</TT>
+               </TD><TD>
+                  Erase the elements from <tt>begin</tt> to <tt>end</tt>.
+               </TD><TD>
+                  O(n)
+               </TD></TR>
+         </TABLE>
+        
+        <HR>
+
+        <H2><a NAME="list"></a>List</H2>
+        <H3>Header</H3>
+        <p><tt>#include &lt;list&gt;</tt></p>
+
+        <H3>Constructors</H3>
+        <TABLE border="1">
+            <TR>
+                <TD>
+                    <TT>list &lt;T&gt; l</TT>
+                </TD><TD>
+                    <TT>Make an empty list.</TT>
+                </TD><TD>
+                    <TT>O(1)</TT>
+                </TD>
+            </TR>
+            <TR>
+               <TD>
+                   <TT>list &lt;T&gt; l(begin, end)</TT>
+               </TD><TD>
+                   <TT>Make a list and copy the values from begin to end.</TT>
+               </TD><TD>
+                   <TT>O(n)</TT>
+               </TD>
+            </TR>
+        </TABLE>
+
+        <H3>Accessors</H3>
+        <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>l.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.empty();</TT>
+            </TD><TD>
+               Return true if list is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.begin();</TT>
+            </TD><TD>
+               Return bidirectional iterator to start.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.end();</TT>
+            </TD><TD>
+               Return bidirectional iterator to end.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.front();</TT>
+            </TD><TD>
+               Return the first element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.back();</TT>
+            </TD><TD>
+               Return the last element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>l.push_front(value);</TT>
+            </TD><TD>
+               Add value to front.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.push_back(value);</TT>
+            </TD><TD>
+               Add value to end.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.insert(iterator, value);</TT>
+            </TD><TD>
+               Insert value after position indexed by iterator.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.pop_front();</TT>
+            </TD><TD>
+               Remove value from front.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.pop_back();</TT>
+            </TD><TD>
+               Remove value from end.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.erase(iterator);</TT>
+            </TD><TD>
+               Erase value indexed by iterator.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.erase(begin, end);</TT>
+            </TD><TD>
+               Erase the elements from <tt>begin</tt> to <tt>end</tt>.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.remove(value);</TT>
+            </TD><TD>
+               Remove all occurrences of value.
+            </TD><TD>
+               O(n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.remove_if(test);</TT>
+            </TD><TD>
+               Remove all element that satisfy test.
+            </TD><TD>
+               O(n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.reverse();</TT>
+            </TD><TD>
+               Reverse the list.
+            </TD><TD>
+               O(n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.sort();</TT>
+            </TD><TD>
+               Sort the list.
+            </TD><TD>
+               O(n log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.sort(comparison);</TT>
+            </TD><TD>
+               Sort with comparison function.
+            </TD><TD>
+               O(n logn)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>l.merge(l2);</TT>
+            </TD><TD>
+               Merge sorted lists.
+            </TD><TD>
+               O(n)
+            </TD></TR>
+      </TABLE>      
+
+      <HR>
+
+      <H2><A NAME="stack"></A>Stack</H2>
+      
+      <p>In the C++ STL, a stack is a <em>container adaptor</em>.
+      That means there is no primitive stack data structure. Instead, 
+      you create a stack from another container, like a 
+      <a href="#list">list</a>, and the stack's basic operations will be implemented
+      using the underlying container's operations.</p>
+      
+      <H3>Header</H3>
+      
+      <p><tt>#include &lt;stack&gt;</tt></p>
+      
+      
+      <H3>Constructors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>stack&lt; container&lt;T&gt; &gt; s;</TT>
+            </TD><TD>
+               Make an empty stack.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Accessors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>s.top();</TT>
+            </TD><TD>
+               Return the top element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.empty();</TT>
+            </TD><TD>
+               Return true if stack is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>s.push(value);</TT>
+            </TD><TD>
+               Push value on top.
+            </TD><TD>
+               Same as <tt>push_back()</tt> for underlying container.
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.pop();</TT>
+            </TD><TD>
+               Pop value from top.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      
+      <HR>
+      
+      <H2><A NAME="queue"></A>Queue</H2>
+      
+      <p>In the C++ STL, a queue is a <em>container adaptor</em>.
+      That means there is no primitive queue data structure. Instead, 
+      you create a queue from another container, like a 
+      <a href="#list">list</a>, and the queue's basic operations will be implemented
+      using the underlying container's operations.</p>
+      
+      <p class="note">Don't confuse a <tt>queue</tt>
+      with a <tt>deque</tt>.</p>
+      
+      <H3>Header</H3>
+      
+      <p><tt>#include &lt;queue&gt;</tt></p>
+      
+      
+      <H3>Constructors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>queue&lt; container&lt;T&gt; &gt; q;</TT>
+            </TD><TD>
+               Make an empty queue.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Accessors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>q.front();</TT>
+            </TD><TD>
+               Return the front element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.back();</TT>
+            </TD><TD>
+               Return the rear element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.empty();</TT>
+            </TD><TD>
+               Return true if queue is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>q.push(value);</TT>
+            </TD><TD>
+               Add value to end.
+            </TD><TD>
+               Same for <tt>push_back()</tt> for underlying container.
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.pop();</TT>
+            </TD><TD>
+               Remove value from front.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <HR>
+      
+      <H2><A NAME="priority"></A>Priority Queue</H2>
+      
+      <p>In the C++ STL, a priority queue is a <em>container adaptor</em>.
+      That means there is no primitive priorty queue data structure. Instead, 
+      you create a priority queue from another container, like a 
+      <a href="#deque">deque</a>, and the 
+      priority queue's basic operations will be implemented
+      using the underlying container's operations.</p>
+      
+      <P>Priority queues are neither first-in-first-out nor
+      last-in-first-out. You push objects onto the priority queue. The top
+      element is always the "biggest" of the elements currently in the
+      priority queue. Biggest is determined by the comparison predicate you
+      give the priority queue constructor.</P>
+      
+      <BLOCKQUOTE><P>If that predicate is a "less than" type predicate,
+      then biggest means largest.</P>
+      
+      <P>If it is a "greater than" type predicate, then biggest means
+      smallest.</P></BLOCKQUOTE>
+      
+      <H3>Header</H3>
+      
+      <p><tt>#include &lt;queue&gt;</tt> -- not a typo!</p>
+      
+      <H3>Constructors</H3>
+      
+      <TABLE border="1" WIDTH="80%">
+         <TR>
+            <TD valign="top">
+               <TT>priority_queue&lt;T,<br>
+               &nbsp;&nbsp;container&lt;T&gt;,<br>
+               &nbsp;&nbsp;comparison&lt;T&gt; &gt;<br>
+               &nbsp;&nbsp;q;</TT>
+            </TD><TD valign="top">
+               Make an empty priority queue using the given container to
+               hold values, and comparison to compare values. container defaults to 
+               <tt>vector&lt;T&gt;</tt> and comparison defaults to
+               <tt>less&lt;T&gt;</tt>. 
+            </TD><TD valign="top" width="10%">
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Accessors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>q.top();</TT>
+            </TD><TD>
+               Return the "biggest" element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.empty();</TT>
+            </TD><TD>
+               Return true if priority queue is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>q.push(value);</TT>
+            </TD><TD>
+               Add value to priority queue.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>q.pop();</TT>
+            </TD><TD>
+               Remove biggest value.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+      </TABLE>
+      
+      <HR>
+      
+      <H2><A NAME="set"></A>Set and Multiset</H2>
+      
+      <P>Sets store objects and automatically keep them sorted and quick to
+      find. In a set, there is only one copy of each objects. <tt>multiset</tt>s
+      are declared and used the same as <tt>set</tt>s but allow duplicate
+      elements.
+      </P>
+      
+      <P>Anything stored in a set has to have a comparison predicate. This
+      will default to whatever <TT>operator&lt;()</TT> has been defined for the
+      item you're storing. Alternatively, you can specify a predicate to use when
+      constructing the set.</P>
+      
+      <H3>Header</H3>
+      
+      <p><tt>#include &lt;set&gt;</tt></p>
+      
+      <H3>Constructors</H3>
+      
+      <TABLE border="1" WIDTH="100%">
+         <TR>
+            <TD>
+               <TT>set&lt; type, compare &gt; s;</TT>
+            </TD><TD>
+               Make an empty set. <tt>compare</tt> should be a binary
+               predicate for ordering the set. It's optional and will
+               default to a function that uses <tt>operator&lt;</tt>.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>set&lt; type, compare &gt; s(begin, end);</TT>
+            </TD><TD>
+               Make a set and copy the values from <tt>begin</tt> to <tt>end</tt>.
+            </TD><TD>
+               O(n log n)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Accessors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>s.find(key)</TT>
+            </TD><TD>
+               Return an iterator pointing to an occurrence of
+               <TT>key</TT> in <TT>s</TT>, or <TT>s.end()</TT> if
+               <TT>key</TT> is not in <TT>s</TT>.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.lower_bound(key)</TT>
+            </TD><TD>
+               Return an iterator pointing to the first occurrence of an item in <TT>s</TT>
+               not less than <TT>key</TT>, or <TT>s.end()</TT> if
+               no such item is found.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.upper_bound(key)</TT>
+            </TD><TD>
+               Return an iterator pointing to the first occurrence of an
+               item greater than <TT>key</TT> in <TT>s</TT>, or
+               <TT>s.end()</TT> if no such item is found.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.equal_range(key)</TT>
+            </TD><TD>
+               Returns <TT>pair&lt;lower_bound(key),
+               upper_bound(key)&gt;</TT>.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.count(key)</TT>
+            </TD><TD>
+               Returns the number of items equal to <TT>key</TT> in
+               <TT>s</TT>.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.empty();</TT>
+            </TD><TD>
+               Return true if set is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.begin()</TT>
+            </TD><TD>
+               Return an iterator pointing to the first element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.end()</TT>
+            </TD><TD>
+               Return an iterator pointing one past the last element.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>s.insert(iterator, key)</TT>
+            </TD><TD>
+               Inserts <TT>key</TT> into <TT>s</TT>. <TT>iterator</TT>
+               is taken as a "hint" but <TT>key</TT> will go in the correct
+               position no matter what. Returns an iterator pointing to
+               where <TT>key</TT> went.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>s.insert(key)</TT>
+            </TD><TD>
+               Inserts <TT>key</TT> into <TT>s</TT> and returns a
+               <TT>pair&lt;</TT><I><TT>iterator,
+               bool</TT></I><TT>&gt;</TT>, where <I><TT>iterator</TT></I>
+               is where <TT>key</TT> went and <I><TT>bool</TT></I> is true
+               if <TT>key</TT> was actually inserted, i.e., was not already
+               in the set.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+      </TABLE>
+      
+      <HR>
+      
+      <H2><A NAME="map"></A>Map and Multimap</H2>
+      
+      <P>Maps can be thought of as generalized vectors. They allow
+      <TT>map[key] = value</TT> for any kind of <TT>key</TT>, not just
+      integers. Maps are often called associative tables in other
+      languages, and are incredibly useful. They're even useful when the
+      keys are integers, if you have very sparse arrays, i.e., arrays where
+      almost all elements are one value, usually 0.</P>
+      
+      <P>Maps are implemented with balanced binary search trees, typically
+      red-black trees. Thus, they provide logarithmic storage and retrieval
+      times. Because they use search trees, maps need a comparison
+      predicate to sort the keys. <tt>operator&lt;()</tt> will be used
+      by default if none is specified a construction time.
+      </P>
+      
+      <P>Maps store &lt;key, value&gt; <TT>pair</TT>'s. That's what map
+      iterators will return when dereferenced. To get the value pointed to
+      by an iterator, you need to say</P>
+      
+      <pre class="sample-code">(*mapIter).second</pre>
+      
+      <P>Usually though you can just use
+      <TT>map[key]</TT> to get the value directly.
+      </P>
+      
+      <BLOCKQUOTE><P><B>Warning</B>:
+      <TT>map[key]</TT> creates a
+      dummy entry for <TT>key</TT> if one wasn't in the map before.
+      Use <TT>map.find(key)</TT>
+      if you don't want this to happen.</P></BLOCKQUOTE>
+      
+      <p><tt>multimap</tt>s are like <tt>map</tt> except that they allow duplicate
+      keys. <tt>map[key]</tt> is not defined for multimaps. Instead you
+      use <tt>lower_bound()</tt> and <tt>upper_bound()</tt>, or
+      <tt>equal_range()</tt>, to get the iterators for the 
+      beginning and end of the range of values stored for the key.
+      To insert a new entry, use <tt>map.insert(pair&lt;key_type, value_type&gt;(key, value))</tt>.
+      </p>
+      
+      
+      <H3>Header</H3>
+      
+      <p><tt>#include &lt;map&gt;</tt></p>
+      
+      <H3>Constructors</H3>
+      
+      <TABLE border="1" WIDTH="100%">
+         <TR>
+            <TD>
+               <TT>map&lt; key_type, value_type, key_compare &gt;  m;</TT>
+            </TD><TD>
+               Make an empty map. <tt>key_compare</tt> should be a binary
+               predicate for ordering the keys. It's optional and will
+               default to a function that uses <tt>operator&lt;</tt>.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>map&lt; key_type, value_type, key_compare &gt; m(begin, end);</TT>
+            </TD><TD>
+               Make a map and copy the values from <tt>begin</tt> to <tt>end</tt>.
+            </TD><TD>
+               O(n log n)
+            </TD></TR>
+            
+      </TABLE>
+      
+      <H3>Accessors</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>m[key]</TT>
+            </TD><TD>
+               Return the value stored for <TT>key</TT>. This adds a default
+               value if <TT>key</TT> not in map.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.find(key)</TT>
+            </TD><TD>
+               Return an iterator pointing to a key-value pair, or
+               <TT>m.end()</TT> if key is not in map.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.lower_bound(key)</TT>
+            </TD><TD>
+               Return an iterator pointing to the first pair containing key, or
+               <TT>m.end()</TT> if key is not in map.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.upper_bound(key)</TT>
+            </TD><TD>
+               Return an iterator pointing one past the last pair containing key, or
+               <TT>m.end()</TT> if key is not in map.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.equal_range(key)</TT>
+            </TD><TD>
+               Return a <tt>pair</tt> containing the lower and upper bounds
+               for key. This may be more efficient than calling those functions
+               separately.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.size();</TT>
+            </TD><TD>
+               Return current number of elements.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.empty();</TT>
+            </TD><TD>
+               Return true if map is empty.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.begin()</TT>
+            </TD><TD>
+               Return an iterator pointing to the first pair.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.end()</TT>
+            </TD><TD>
+               Return an iterator pointing one past the last pair.
+            </TD><TD>
+               O(1)
+            </TD></TR>
+      </TABLE>
+      
+      <H3>Modifiers</H3>
+      
+      <TABLE border="1">
+         <TR>
+            <TD>
+               <TT>m[key] = value;</TT>
+            </TD><TD>
+               Store <TT>value</TT> under <TT>key</TT> in map.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+         <TR>
+            <TD>
+               <TT>m.insert(pair)</TT>
+            </TD><TD>
+               Inserts the &lt;key, value&gt; pair into the map.
+               Equivalent to the above operation.
+            </TD><TD>
+               O(log n)
+            </TD></TR>
+      </TABLE>
+            
+            
+   </body>
 </html>
